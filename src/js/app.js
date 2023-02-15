@@ -2,6 +2,10 @@ import {
   formSubmitBtn,
   selectBtn,
   hiddenFileSelector,
+  selectedFilename,
+  spinner,
+  imagesHolder,
+  prompter,
 } from './globals/dom.globals'
 
 const onFileInputChange = (e) => {
@@ -24,25 +28,20 @@ const onFileInputChange = (e) => {
     reader.readAsDataURL(e.target.files[0])
     //document.querySelector('.images-holder').appendChild(reader.readAsDataURL(e.target.files[0]))
 
-    document.getElementById('selected_filename').textContent =
-      e.target.files[0].name
+    selectedFilename.textContent = e.target.files[0].name
   },
   onFileUploadClick = (e) => {
     e.preventDefault()
-    document.getElementById('myFile').value = ''
-    document.getElementById('myFile').click()
+    hiddenFileSelector.value = ''
+    hiddenFileSelector.click()
   },
   disableButtonGenerator = () => {
-    document.getElementById('form-submit').classList.remove('bg-teal-500')
-    document
-      .getElementById('form-submit')
-      .classList.add('bg-neutral-400', 'pointer-events-none')
+    formSubmitBtn.classList.remove('bg-teal-500')
+    formSubmitBtn.classList.add('bg-neutral-400', 'pointer-events-none')
   },
   enableButtonGenerator = () => {
-    document
-      .getElementById('form-submit')
-      .classList.remove('bg-neutral-400', 'pointer-events-none')
-    document.getElementById('form-submit').classList.add('bg-teal-500')
+    formSubmitBtn.classList.remove('bg-neutral-400', 'pointer-events-none')
+    formSubmitBtn.classList.add('bg-teal-500')
   },
   onImgLoaded = (e) => {
     e.target.removeEventListener('load', onImgLoaded, false)
@@ -58,10 +57,10 @@ const onFileInputChange = (e) => {
     // console.log(e.currentTarget)
   },
   hideSpinner = () => {
-    document.querySelector('.spinner').classList.remove('show')
+    spinner.classList.remove('show')
   },
   showSpinner = () => {
-    document.querySelector('.spinner').classList.add('show')
+    spinner.classList.add('show')
   },
   generateImageThumbnail = (_src) => {
     const myImgContainer = document.createElement('div')
@@ -85,7 +84,7 @@ const onFileInputChange = (e) => {
     myImgHolder.appendChild(myImg)
     myImg.addEventListener('load', onImgLoaded, false)
 
-    document.querySelector('.images-holder').appendChild(myImgContainer)
+    imagesHolder.appendChild(myImgContainer)
 
     //return myImgContainer
   },
@@ -126,7 +125,7 @@ const onFileInputChange = (e) => {
   onSubmit = (e) => {
     e.preventDefault()
 
-    const myPrompt = document.querySelector('#prompt').value
+    const myPrompt = prompter.value
 
     if (!myPrompt.length > 0) {
       alert('please add some text')
@@ -136,7 +135,6 @@ const onFileInputChange = (e) => {
     }
   },
   init = (e) => {
-    console.log('hello world')
     document.removeEventListener('DOMContentLoaded', init, false)
     formSubmitBtn.addEventListener('click', onSubmit, false)
     selectBtn.addEventListener('click', onFileUploadClick, false)
