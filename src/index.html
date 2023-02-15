@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <link rel="stylesheet" href="css/spinner.css" /> -->
+
+    <script type="module" src="js/app.js"></script>
+    <title>Open NFT Generator</title>
+  </head>
+  <body>
+    <header class="container mx-auto py-[3rem]">
+      <div class="navbar flex justify-between items-center">
+        <div class="logo">
+          <h1>OpenAI NFT Generator</h1>
+        </div>
+        <div class="nav-links">
+          <ul>
+            <buttom class="text-xs rounded-md bg-teal-500 text-white px-5 py-3 hover:bg-teal-400 cursor-pointer">
+              Connect Wallet
+            </button>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto">
+      <h1 class="mt-[5rem] font-serif text-teal-500 leading-[5rem] text-[5rem]">A free NFT image or collection generator powered by Ai. Type, create and mint. That's it.</h1>
+      <h2 class="msg my-[1rem] text-sm text-rose-500"></h2>
+      <section class="showcase mt-[5rem] grid grid-cols-5 w-full">
+        <form id="image-form" class="col-span-2">
+          <label for="image-form" class="border-b-4 pb-4 border-teal-500 w-full">Use Artifical Inteligence</label>
+          <div class="form-control py-[3rem] mt-[3rem] min-w-full">
+            <input type="text" id="prompt" class="text-teal-500 text-1xl border-b-1 border-slate-300 outline-none focus:outline-none focus:background-transparent focus:text-teal-500 w-full placeholder:text-slate-300" placeholder="Describe an image for your NFT" />
+          </div>         
+          <div class="flex justify-start items-center">
+            <button id="form-submit" type="submit" class="btn rounded-md bg-teal-500 text-white px-5 py-3 hover:bg-teal-400">Generate</button>
+          <div class="spinner w-[1.5rem] h-[1.5rem] ml-[3rem]"></div>
+          </div>          
+        </form>    
+        <span class="font-serif text-[5rem] text-teal-500">Or</span>
+        <form id="upload-form" class="col-span-2">
+          <label for="upload-form" class="border-b-4 pb-4 border-teal-500 w-full">Use your own image</label>
+          <div class="form-control py-[3rem] mt-[3rem] min-w-full">
+            <input type="file" id="myFile" name="filename" class="hidden">
+            <span id="selected_filename" class="block text-slate-300 text-1xl mb-[3rem]">No file selected</span>
+            <button id="select-btn" class="btn block rounded-md bg-teal-500 text-white px-5 py-3 hover:bg-teal-400 inline-block">Select</button>
+            <!-- <input id="upload-btn" class="btn block rounded-md bg-teal-500 text-white px-5 py-3 hover:bg-teal-400 inline-block" value="Upload" type="submit">  -->
+          </div>
+        </form>    
+      </section>
+      <div class="images-container min-h-[25rem] w-full">          
+        <div class="images-holder flex justify-start items-center flex-wrap my-[3rem]"></div>
+      </div>
+    </main>
+    <footer class="bottom-0 w-full grid justify-items-center bg-teal-500 text-white py-[5rem]">
+      <ul>
+        <li><a href="https://beta.openai.com/docs" target="_blank">OpenAI API Documentation</a></li>
+      </ul>
+    </footer>    
+  </body>
+</html>

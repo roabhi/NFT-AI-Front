@@ -1,0 +1,31 @@
+{
+  "name": "nft-ai-front",
+  "version": "1.0.0",
+  "description": "",
+  "proxy": "http://localhost:5000",
+  "scripts": {
+    "build": "parcel build --public-url ./ ./src/index.html --dist-dir dist",
+    "start": "parcel serve ./src/index.html",
+    "clean": "rimraf dist .parcel-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roabhi/NFT-AI-Front.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roabhi/NFT-AI-Front/issues"
+  },
+  "homepage": "https://github.com/roabhi/NFT-AI-Front#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.6"
+  },
+  "dependencies": {
+    "rimraf": "^4.1.2"
+  }
+}
